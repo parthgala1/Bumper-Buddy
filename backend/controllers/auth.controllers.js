@@ -7,10 +7,11 @@ export const registerUser = async (req, res) => {
     const {
       name,
       username,
+      email,
+      phone,
       password,
       confirmPassword,
       profilePicture,
-      member,
     } = req.body;
 
     if (password !== confirmPassword) {
@@ -29,9 +30,10 @@ export const registerUser = async (req, res) => {
     const newUser = new User({
       name,
       username,
+      phone,
+      email,
       password: hashedPassword,
       profilePicture,
-      member,
     });
 
     if (newUser) {
@@ -42,7 +44,8 @@ export const registerUser = async (req, res) => {
         _id: newUser._id,
         name: newUser.name,
         username: newUser.username,
-        member: newUser.member,
+        email: newUser.email,
+        phone: newUser.phone,
         profilePicture: newUser.profilePicture,
       });
     } else {
@@ -75,7 +78,8 @@ export const loginUser = async (req, res) => {
       _id: user._id,
       name: user.name,
       username: user.username,
-      member: user.member,
+      email: user.email,
+      phone: user.phone,
       profilePicture: user.profilePicture,
     });
   } catch (error) {

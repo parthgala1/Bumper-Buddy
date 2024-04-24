@@ -31,9 +31,9 @@ app.use(cookieParser());
 
 //CLOUDINARY CONFIG
 cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME || "dileeksrh",
-  api_key: process.env.API_KEY || "617532123413839",
-  api_secret: process.env.API_SECRET || "DIyaevCa-RgmWKtXm3wnZtGRbng",
+  cloud_name: process.env.CLOUD_NAME || "dxm0nsdyf",
+  api_key: process.env.API_KEY || "187779874878682",
+  api_secret: process.env.API_SECRET || "5Df5tKtZNWZURknttq2vx8N5QbE",
 });
 async function handleUpload(file) {
   const res = await cloudinary.uploader.upload(file, {
@@ -59,8 +59,6 @@ app.post("/api/auth/upload", upload.single("my_file"), async (req, res) => {
 
 //Routes
 import authRoutes from "./routes/auth.routes.js";
-import memberRoutes from "./routes/member.routes.js";
 app.use("/api/auth", authRoutes);
-app.use("/api/users", memberRoutes);
 
 export { app };

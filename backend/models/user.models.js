@@ -17,13 +17,27 @@ const userSchema = new Schema(
       type: String,
       default: "",
     },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    Car: {
+      type: Array,
+      required: true,
+    },
+    Insurance: {
+      type: Array,
+      required: true,
+    },
     password: {
       type: String,
       required: true,
-    },
-    member: {
-      type: String,
-      enum: ["Member", "Non-Member"],
     },
   },
   { timestamps: true }

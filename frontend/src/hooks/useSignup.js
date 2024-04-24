@@ -38,10 +38,11 @@ const useSignup = () => {
         body: JSON.stringify({
           name,
           username,
+          email,
+          phone,
           password,
           confirmPassword,
           profilePicture: pictureData.url, // Use uploaded picture URL
-          member,
         }),
       });
       console.log(pictureData.url);
@@ -93,17 +94,19 @@ export default useSignup;
 function handleInputErrors({
   name,
   username,
+  email,
+  phone,
   password,
   confirmPassword,
   profilePicture,
-  member,
 }) {
   if (
     !name ||
     !username ||
+    !email ||
+    !phone ||
     !password ||
     !confirmPassword ||
-    !member ||
     !profilePicture
   ) {
     toast.error("Please fill all the fields");
